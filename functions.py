@@ -38,7 +38,7 @@ def Open(current_directory,file_name, mode):
 def Close(file):    #File exists as opened so no need to check existence
     file.read = False
     file.write = False
-    return
+    return False
 
 def mkDir(current_directory, new_directory):
     current_directory.hashTable[new_directory] = classes.Directory(name=new_directory, hashTable=dict(), path=current_directory.path)
