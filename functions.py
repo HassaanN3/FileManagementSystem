@@ -1,4 +1,5 @@
 import classes
+import sys
 
 def exists(current_directory, file_name):
     if file_name in current_directory.hashTable:
@@ -41,7 +42,10 @@ def Close(file):    #File exists as opened so no need to check existence
     return False
 
 def mkDir(current_directory, new_directory):
-    current_directory.hashTable[new_directory] = classes.Directory(name=new_directory, hashTable=dict(), path=current_directory.path)
+    if not exists(current_directory, new_directory):
+        current_directory.hashTable[new_directory] = classes.Directory(name=new_directory, hashTable=dict(), path=current_directory.path)
+    else:
+        print(f"{new_directory} already exists in {current_directory.path}")
 
 """def chDir(current_directory, new_directory):
     current_directory = current_directory[new_directory]
@@ -53,3 +57,8 @@ def printElements(current_directory):
     print(f"\n{current_directory.path}:")
     for x in current_directory.hashTable:
         print(f"    {x}")
+        
+def printMemoryMap(current_directory):
+    print(f"\n{current_directory.path}:")
+    for x in current_directory.hashTable:
+        print(f"    {x} -> Starts at: {hex(id(x))} Size: {sys.getsizeof(x)} Bytes")
