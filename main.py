@@ -17,6 +17,16 @@ def saveInDat(home_directory):
     with open('sample.dat', 'wb') as file:
         pickle.dump(home_directory.hashTable, file)
 
+def getIntInput(min, max):
+    while(1):
+        user_input = int(input(": "))
+        if user_input >= min and user_input <= max:
+            return user_input
+        else:
+            print("Enter Valid Option")
+
+
+
 if __name__ == '__main__':
     home_directory = classes.Directory(name='home', hashTable=loadFromDat(), path="/")
     current_directory = home_directory
@@ -31,8 +41,8 @@ if __name__ == '__main__':
         print("7. Change Directory\t8. Print Memory Map")
         print("9. Clear Screen\t\t10. Save")
         print("11. Exit")
-        user_input = int(input(": "))
-
+        user_input = getIntInput(min=1,max=11)
+        
         if user_input == 1: #Create File
             file_name = input("\nEnter File Name\n: ")
             functions.create(current_directory, file_name)
@@ -48,11 +58,14 @@ if __name__ == '__main__':
 
             while(current_file != False):    #Valid Parameters
                 print(f"\nCurrent File: {current_directory.path}{file_name}")
-                user_input = int(input("\n1. Write in File\t2. Read from File\n3. Close File\n: "))
-                
+                print("\n1. Write in File\t2. Read from File\n3. Close File")
+                user_input = getIntInput(min=1,max=3)
+
                 if user_input == 1: #Write in File
                     if current_file.write == True:
-                        user_input = int(input("\n1. Append Mode\t2. Write at Index\n: "))
+                        print("\n1. Append Mode\t2. Write at Index")
+                        user_input = getIntInput(min=1,max=2)
+
                         content = input("Enter text to write: ")
 
                         if user_input == 1: #Write in Append Mode
@@ -66,7 +79,8 @@ if __name__ == '__main__':
 
                 elif user_input == 2:   #Read from File
                     if current_file.read == True:
-                        user_input = int(input("\n1. Sequential Read\t2. Read from Index\n: "))
+                        print("\n1. Sequential Read\t2. Read from Index")
+                        user_input = getIntInput(min=1,max=2)
 
                         if user_input == 1: #Read in Sequential 
                             print("Content: ")
@@ -74,7 +88,8 @@ if __name__ == '__main__':
                         elif user_input == 2:   #Read from Index
                             read_from = int(input("Enter index: "))
                                 
-                            user_input = int(input("\n1. Read All\t2. Read x characters\n: "))
+                            print("\n1. Read All\t2. Read x characters")
+                            user_input = getIntInput(min=1,max=2)
                             
                             if user_input == 1: #Read all
                                 print("Content: ")
@@ -85,7 +100,8 @@ if __name__ == '__main__':
                                 read_size = int(input("Enter Number of Characters to Read: "))
                                 current_file.readFromFile(index = read_from, size = read_size) 
                     else:
-                        print(f"Error cannot write in {current_file.name}: No access")      
+                        print(f"Error cannot write in {current_file.name}: No access")
+
                 elif user_input == 3:   #Close
                     current_file = functions.Close(current_file)
 
@@ -102,7 +118,8 @@ if __name__ == '__main__':
 
         elif user_input == 7:
             print("\nChange Directory: ")
-            user_input = int(input("1. Parent Directory\t2. Child Directory\n3. Use Full Path\n: "))
+            print("1. Parent Directory\t2. Child Directory\n3. Use Full Path")
+            user_input = getIntInput(min=1,max=3)
 
             if user_input == 1:
                 current_directory = functions.chDir(current_directory, current_directory, mode="parent")
@@ -126,5 +143,5 @@ if __name__ == '__main__':
 
         elif user_input == 11:  #Exit
             break
-        
+               
         print("\n")
