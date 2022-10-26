@@ -4,6 +4,7 @@
 import classes
 import functions
 import os
+import sys
 import pickle
 
 def loadFromDat():
@@ -34,8 +35,8 @@ if __name__ == '__main__':
         print("\n1. Create File\t\t2. Delete File")
         print("3. Open File\t\t4. List all files")
         print("5. Make Directory\t6. Delete Directory")
-        print("7. Change Directory\t8. Clear Screen")
-        print("9. Print Memory Map\t\t\t10. Save")
+        print("7. Change Directory\t8. Print Memory Map")
+        print("9. Clear Screen\t\t10. Save")
         print("11. Exit")
         user_input = int(input(": "))
 
@@ -122,10 +123,10 @@ if __name__ == '__main__':
                 current_directory = functions.chDir(current_directory, new_directory=user_input, mode = "path")
 
         elif user_input == 8:   #Print Memory Map
-            functions.printMemoryMap()
+            functions.printMemoryMap(current_directory)
 
-        elif user_input == 8:   #Clear Screen
-            os.system('cls')
+        elif user_input == 9:   #Clear Screen
+            os.system('clear')
 
         elif user_input == 10:   #Save in .Dat File
             saveInDat(home_directory)
@@ -135,15 +136,13 @@ if __name__ == '__main__':
         
         print("\n")
 
-"""functions.mkDir(current_directory, "folder1")
-functions.printElements(current_directory)
-user_input = int(input("1. Parent Directory\t2. Child Directory\n3. Use Full Path"))
+"""def recursive_items(dictionary):
+    for key, value in dictionary.items():
+        if type(value) is classes.Directory:
+            yield (key, value)
+            yield from recursive_items(value.hashTable)
+        else:
+            yield (key, value)
 
-if user_input == 1:
-    current_directory = functions.chDir(current_directory, current_directory, mode="parent")
-elif user_input == 2:
-    user_input = input("Enter child directory name: ")
-    current_directory = functions.chDir(current_directory,user_input, mode="child")
-elif user_input == 3:
-    user_input = input("Enter full path to directory: ")
-    current_directory = functions.chDir(current_directory, new_directory=user_input, mode = "path")"""
+for x, value in recursive_items(home_directory.hashTable):
+    print(f"    {x} -> Starts at: {hex(id(x))} Size: {sys.getsizeof(x)} Bytes")"""
