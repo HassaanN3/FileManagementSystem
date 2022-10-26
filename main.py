@@ -31,7 +31,12 @@ if __name__ == '__main__':
     while(1):
         print("\tFile Management System\n")
         print(f"Current Directory: {current_directory.path}")
-        user_input = int(input("\n1. Create File\t2. Delete File\n3. Open File\t4. List all files\n5. Clear Screen\n6. Save and Exit\n: "))
+        print("\n1. Create File\t\t2. Delete File")
+        print("3. Open File\t\t4. List all files")
+        print("5. Make Directory\t6. Delete Directory")
+        print("7. Change Directory\t8. Clear Screen")
+        print("9. Save\t\t\t10. Exit")
+        user_input = int(input(": "))
 
         if user_input == 1: #Create File
             file_name = input("\nEnter File Name\n: ")
@@ -92,11 +97,36 @@ if __name__ == '__main__':
         elif user_input == 4:   #List all files in directory
             functions.printElements(current_directory)
 
-        elif user_input == 5:   #Clear Screen
+        elif user_input == 5:
+            directory_name = input("\nEnter Directory Name\n: ")
+            functions.mkDir(current_directory, directory_name)
+            
+        elif user_input == 6:
+            directory_name = input("\nEnter Directory Name\n: ")    #TODO file does not exist
+            functions.delete(current_directory, directory_name)
+
+        elif user_input == 7:
+            print("\nChange Directory: ")
+            user_input = int(input("1. Parent Directory\t2. Child Directory\n3. Use Full Path\n: "))
+
+            if user_input == 1:
+                current_directory = functions.chDir(current_directory, current_directory, mode="parent")
+
+            elif user_input == 2:
+                user_input = input("\nEnter Child Directory Name: ")
+                current_directory = functions.chDir(current_directory,user_input, mode="child")
+                
+            elif user_input == 3:
+                user_input = input("\nEnter Full Path to Directory: ")
+                current_directory = functions.chDir(current_directory, new_directory=user_input, mode = "path")
+
+        elif user_input == 8:   #Clear Screen
             os.system('cls')
 
-        elif user_input == 6:   #Save in .Dat File
+        elif user_input == 9:   #Save in .Dat File
             saveInDat(home_directory)
+
+        elif user_input == 10:
             break
         
         print("\n")
