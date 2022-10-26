@@ -1,10 +1,8 @@
 #TODO create files in system
-#TODO Memory Map
 #TODO Remaining functions
 import classes
 import functions
 import os
-import sys
 import pickle
 
 def loadFromDat():
@@ -18,11 +16,6 @@ def loadFromDat():
 def saveInDat(home_directory):
     with open('sample.dat', 'wb') as file:
         pickle.dump(home_directory.hashTable, file)
-
-"""def fileManipulation():
-
-def dirManipulation():"""
-
 
 if __name__ == '__main__':
     home_directory = classes.Directory(name='home', hashTable=loadFromDat(), path="/")
@@ -123,7 +116,7 @@ if __name__ == '__main__':
                 current_directory = functions.chDir(current_directory, new_directory=user_input, mode = "path")
 
         elif user_input == 8:   #Print Memory Map
-            functions.printMemoryMap(current_directory)
+            functions.printMemoryMap(home_directory)
 
         elif user_input == 9:   #Clear Screen
             os.system('clear')
@@ -135,14 +128,3 @@ if __name__ == '__main__':
             break
         
         print("\n")
-
-"""def recursive_items(dictionary):
-    for key, value in dictionary.items():
-        if type(value) is classes.Directory:
-            yield (key, value)
-            yield from recursive_items(value.hashTable)
-        else:
-            yield (key, value)
-
-for x, value in recursive_items(home_directory.hashTable):
-    print(f"    {x} -> Starts at: {hex(id(x))} Size: {sys.getsizeof(x)} Bytes")"""

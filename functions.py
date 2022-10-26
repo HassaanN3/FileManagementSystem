@@ -79,7 +79,14 @@ def printElements(current_directory):
     for x in current_directory.hashTable:
         print(f"    {x}")
         
-def printMemoryMap(current_directory):
-    print(f"\n{current_directory.path}:")
-    for x in current_directory.hashTable:
-        print(f"    {x} -> Starts at: {hex(id(x))} Size: {sys.getsizeof(x)} Bytes")
+def printMemoryMap(home_directory):
+    def recursive_items(dictionary):
+        for key, value in dictionary.items():
+            if type(value) is classes.Directory:
+                yield (key, value)
+                yield from recursive_items(value.hashTable)
+            else:
+                yield (key, value)
+    print("\n\tMemory Map")
+    for x, value in recursive_items(home_directory.hashTable):
+        print(f"{x} -> Starts at: {hex(id(x))}, Size: {sys.getsizeof(x)} Bytes")
