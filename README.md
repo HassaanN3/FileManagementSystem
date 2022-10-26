@@ -1,9 +1,11 @@
 # FileManagementSystem
  OS Assignment 1 && Lab 6
 
+# Tested on Linux (Ubuntu)
+
 # Current UI
 
-	File Management System
+			File Management System
 
 Current Directory: {current_directory.path}
 
@@ -15,7 +17,7 @@ Current Directory: {current_directory.path}
 11. Exit
 
 # TODO
-Create actual files in system
-Remaining functions
-UI improvement
-Memory Map improvement
+1. Create actual files in system
+2. Remaining functions
+3. UI improvement
+4. Memory Map improvement
