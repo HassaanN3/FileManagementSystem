@@ -1,5 +1,3 @@
-#TODO create files in system
-#TODO Remaining functions
 import classes
 import functions
 import os
