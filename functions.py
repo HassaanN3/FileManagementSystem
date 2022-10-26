@@ -48,16 +48,16 @@ def mkDir(current_directory, new_directory):
         print(f"{new_directory} already exists in {current_directory.path}")
 
 def chDir(current_directory, new_directory, mode):
-    count = 0
     if mode.upper() == "PATH":  #new_directory is full path
         directories = new_directory.split('/')
-        for x in directories:
+        for x in directories[2:len(directories)-1]: #Read comment for parent mode
             current_directory = current_directory.hashTable[x]
         
     elif mode.upper() == "PARENT":
         directories = new_directory.path.split('/')
-        for x in directories[1:len(directories)-2]:
-            
+        for x in directories[2:len(directories)-2]:
+            #start from index 2 as first is empty (due to spliting first /) and second is home (already current directory)
+            #Till len - 2 because last is empty (due to spliting last /) and second last is the original current directory
             current_directory = current_directory.hashTable[x]            
 
     elif mode.upper() == "CHILD":
