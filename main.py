@@ -1,6 +1,6 @@
 #TODO create files in system
-from calendar import c
-from hashlib import new
+#TODO Memory Map
+#TODO Remaining functions
 import classes
 import functions
 import os
@@ -35,7 +35,8 @@ if __name__ == '__main__':
         print("3. Open File\t\t4. List all files")
         print("5. Make Directory\t6. Delete Directory")
         print("7. Change Directory\t8. Clear Screen")
-        print("9. Save\t\t\t10. Exit")
+        print("9. Print Memory Map\t\t\t10. Save")
+        print("11. Exit")
         user_input = int(input(": "))
 
         if user_input == 1: #Create File
@@ -120,13 +121,16 @@ if __name__ == '__main__':
                 user_input = input("\nEnter Full Path to Directory: ")
                 current_directory = functions.chDir(current_directory, new_directory=user_input, mode = "path")
 
+        elif user_input == 8:   #Print Memory Map
+            functions.printMemoryMap()
+
         elif user_input == 8:   #Clear Screen
             os.system('cls')
 
-        elif user_input == 9:   #Save in .Dat File
+        elif user_input == 10:   #Save in .Dat File
             saveInDat(home_directory)
 
-        elif user_input == 10:
+        elif user_input == 11:  #Exit
             break
         
         print("\n")
