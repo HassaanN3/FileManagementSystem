@@ -16,6 +16,11 @@ def saveInDat(home_directory):
     with open('sample.dat', 'wb') as file:
         pickle.dump(home_directory.hashTable, file)
 
+"""def fileManipulation():
+
+def dirManipulation():"""
+
+
 if __name__ == '__main__':
     home_directory = classes.Directory(name='home', hashTable=loadFromDat(), path="")
     current_directory = home_directory
@@ -37,7 +42,7 @@ if __name__ == '__main__':
         elif user_input == 3: #Open File
             file_name = input("\nEnter File Name\n: ")    #TODO file does not exist
             mode = input("\nEnter Mode\n: ")
-            current_file = functions.Open(current_directory, file_name, mode.upper())
+            current_file = functions.Open(current_directory, file_name, mode)
 
             while(current_file != False):    #Valid Parameters
                 print(f"\nCurrent File: {current_directory.path}{file_name}")

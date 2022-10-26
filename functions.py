@@ -23,9 +23,9 @@ def delete(current_directory, file_name):
 
 def Open(current_directory,file_name, mode):
     if exists(current_directory, file_name):
-        if mode == "READ":
+        if mode.upper() == "READ":
             current_directory.hashTable[file_name].read = True
-        elif mode == "WRITE":
+        elif mode.upper() == "WRITE":
             current_directory.hashTable[file_name].write = True
         else:
             print("Mode can be either read or write")
@@ -47,11 +47,26 @@ def mkDir(current_directory, new_directory):
     else:
         print(f"{new_directory} already exists in {current_directory.path}")
 
-"""def chDir(current_directory, new_directory):
-    current_directory = current_directory[new_directory]
+def chDir(current_directory, new_directory, mode):
+    count = 0
+    if mode.upper() == "PATH":  #new_directory is full path
+        directories = new_directory.split('/')
+        for x in directories:
+            current_directory = current_directory[x]
+        
+    elif mode.upper() == "PARENT":
+        directories = new_directory.path.split('/')
+        for x in directories:
+            count += 1
+            current_directory = current_directory[x]
+            if count == len(directories):
+                break
+            
+    elif mode.upper() == "CHILD":
+        current_directory = current_directory[new_directory]
 
 def move(current_directory, source_file, target_file):
-    current_directory[target_file] = current_directory[source_file]"""
+    current_directory[target_file] = current_directory[source_file]
 
 def printElements(current_directory):
     print(f"\n{current_directory.path}:")
