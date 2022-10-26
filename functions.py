@@ -52,18 +52,18 @@ def chDir(current_directory, new_directory, mode):
     if mode.upper() == "PATH":  #new_directory is full path
         directories = new_directory.split('/')
         for x in directories:
-            current_directory = current_directory[x]
+            current_directory = current_directory.hashTable[x]
         
     elif mode.upper() == "PARENT":
         directories = new_directory.path.split('/')
-        for x in directories:
-            count += 1
-            current_directory = current_directory[x]
-            if count == len(directories):
-                break
+        for x in directories[1:len(directories)-2]:
             
+            current_directory = current_directory.hashTable[x]            
+
     elif mode.upper() == "CHILD":
-        current_directory = current_directory[new_directory]
+        current_directory = current_directory.hashTable[new_directory]
+    
+    return current_directory
 
 def move(current_directory, source_file, target_file):
     current_directory[target_file] = current_directory[source_file]

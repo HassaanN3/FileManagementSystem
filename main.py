@@ -1,4 +1,6 @@
 #TODO create files in system
+from calendar import c
+from hashlib import new
 import classes
 import functions
 import os
@@ -22,7 +24,7 @@ def dirManipulation():"""
 
 
 if __name__ == '__main__':
-    home_directory = classes.Directory(name='home', hashTable=loadFromDat(), path="")
+    home_directory = classes.Directory(name='home', hashTable=loadFromDat(), path="/")
     current_directory = home_directory
     current_file = ""
 
@@ -98,3 +100,29 @@ if __name__ == '__main__':
             break
         
         print("\n")
+
+"""functions.mkDir(current_directory, "folder1")
+functions.printElements(current_directory)
+user_input = int(input("1. Parent Directory\t2. Child Directory\n3. Use Full Path"))
+
+if user_input == 1:
+    current_directory = functions.chDir(current_directory, current_directory, mode="parent")
+elif user_input == 2:
+    user_input = input("Enter child directory name: ")
+    current_directory = functions.chDir(current_directory,user_input, mode="child")
+elif user_input == 3:
+    user_input = input("Enter full path to directory: ")
+    current_directory = functions.chDir(current_directory, new_directory=user_input, mode = "path")
+
+print(f"Current Directory: {current_directory.path}")
+
+current_directory = functions.chDir(home_directory, current_directory, mode="parent")
+
+print(f"Current Directory: {current_directory.path}")"""
+
+functions.mkDir(current_directory, "folder1")
+current_directory = functions.chDir(current_directory, new_directory="folder1", mode="child")
+functions.mkDir(current_directory, "folder2")
+current_directory = functions.chDir(current_directory, new_directory="folder2", mode="child")
+functions.mkDir(current_directory, "folder3")
+saveInDat(home_directory)

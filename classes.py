@@ -3,7 +3,7 @@ class Directory:
     def __init__(self, name, hashTable, path) -> None:
         self.name = name
         self.hashTable = hashTable
-        self.path += path + "/" + name + "/"
+        self.path += path + name + "/"
 
 class File:
     def __init__(self, name, content) -> None:
