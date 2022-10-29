@@ -5,7 +5,7 @@
 
 # Current UI
 
-			File Management System
+	File Management System
 
 Current Directory: {current_directory.path}
 
@@ -17,6 +17,6 @@ Current Directory: {current_directory.path}
 11. Exit
 
 # TODO
-Create actual files in system
-Remaining functions
-UI improvement
+1. Create actual files in system
+2. Remaining functions
+3. UI improvement
