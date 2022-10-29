@@ -120,7 +120,7 @@ if __name__ == '__main__':
             user_input = getIntInput(min=1,max=3)
 
             if user_input == 1:
-                current_directory = functions.chDir(current_directory, current_directory, mode="parent")
+                current_directory = functions.chDir(home_directory, current_directory, mode="parent")
 
             elif user_input == 2:
                 user_input = input("\nEnter Child Directory Name: ")
