@@ -2,6 +2,7 @@
  OS Assignment 1 && Lab 6
 
 # Tested on Linux (Ubuntu)
+ For Windows, edit the clear screen command (at user_input == 9) to cls
 
 # Current UI
 
