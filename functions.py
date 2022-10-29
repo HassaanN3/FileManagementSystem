@@ -1,5 +1,7 @@
 import classes
 from getsize import getsize
+from mmap import PAGESIZE
+from math import ceil
 
 def exists(current_directory, file_name):
     if file_name in current_directory.hashTable:
@@ -91,6 +93,8 @@ def printMemoryMap(home_directory):
                 yield (key, value)
                 
     print("\n\tMemory Map")
-    print(f"\nTotal Memory Being Used: {getsize(home_directory)} Bytes\n")
+    print(f"\nPage Size: {PAGESIZE} Bytes")
+    print(f"Total Memory Being Used: {getsize(home_directory)} Bytes")
+    print(f"Total Pages Being Used: {ceil(getsize(home_directory)/PAGESIZE)}\n")
     for key, value in recursive_items(home_directory.hashTable):
         print(f"\n{key}\n   Path: {value.path}\n   Memory allocation:\n      Starts at: {hex(id(value))}\n      Size: {getsize(value)} Bytes")
