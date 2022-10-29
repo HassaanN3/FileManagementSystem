@@ -106,15 +106,15 @@ if __name__ == '__main__':
         elif user_input == 4:   #List all files in directory
             functions.printElements(current_directory)
 
-        elif user_input == 5:
+        elif user_input == 5:   #make dir
             directory_name = input("\nEnter Directory Name\n: ")
             functions.mkDir(current_directory, directory_name)
             
-        elif user_input == 6:
+        elif user_input == 6:   #del dir
             directory_name = input("\nEnter Directory Name\n: ")    #TODO file does not exist
             functions.delete(current_directory, directory_name)
 
-        elif user_input == 7:
+        elif user_input == 7:   #change dir
             print("\nChange Directory: ")
             print("1. Parent Directory\t2. Child Directory\n3. Use Full Path")
             user_input = getIntInput(min=1,max=3)
@@ -128,7 +128,7 @@ if __name__ == '__main__':
                 
             elif user_input == 3:
                 user_input = input("\nEnter Full Path to Directory: ")
-                current_directory = functions.chDir(current_directory, new_directory=user_input, mode = "path")
+                current_directory = functions.chDir(home_directory, new_directory=user_input, mode = "path")
 
         elif user_input == 8:   #Print Memory Map
             functions.printMemoryMap(home_directory)
