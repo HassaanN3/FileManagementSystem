@@ -19,5 +19,5 @@
 
 # TODO (Not required but can do)
 1. Create actual files in system
-2. Remaining functions
+2. Remaining (Optional) functions
 3. UI improvement
