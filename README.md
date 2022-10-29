@@ -17,7 +17,7 @@
 	9. Clear Screen		10. Save
 	11. Exit
 
-# TODO
+# TODO (Not required but can do)
 1. Create actual files in system
 2. Remaining functions
 3. UI improvement
