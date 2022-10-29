@@ -81,7 +81,7 @@ if __name__ == '__main__':
                         user_input = getIntInput(min=1,max=2)
 
                         if user_input == 1: #Read in Sequential 
-                            print("Content: ")
+                            print("\nContent: ")
                             current_file.readFromFile()
                         elif user_input == 2:   #Read from Index
                             read_from = int(input("Enter index: "))
@@ -90,11 +90,11 @@ if __name__ == '__main__':
                             user_input = getIntInput(min=1,max=2)
                             
                             if user_input == 1: #Read all
-                                print("Content: ")
+                                print("\nContent: ")
                                 current_file.readFromFile(index = read_from)
 
                             elif user_input == 2:   #Read x characters
-                                print("Content: ")
+                                print("\nContent: ")
                                 read_size = int(input("Enter Number of Characters to Read: "))
                                 current_file.readFromFile(index = read_from, size = read_size) 
                     else:
