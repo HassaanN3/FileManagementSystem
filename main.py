@@ -3,18 +3,6 @@ import functions
 import os
 import pickle
 
-def loadFromDat():
-    with open('sample.dat', 'rb') as file:
-        try:
-            loaded_dict=pickle.load(file)
-        except EOFError:
-            loaded_dict = dict()
-    return loaded_dict
-
-def saveInDat(home_directory):
-    with open('sample.dat', 'wb') as file:
-        pickle.dump(home_directory.hashTable, file)
-
 def getIntInput(min, max):
     while(1):
         user_input = int(input(": "))
@@ -23,10 +11,8 @@ def getIntInput(min, max):
         else:
             print("Enter Valid Option")
 
-
-
 if __name__ == '__main__':
-    home_directory = classes.Directory(name='home', hashTable=loadFromDat(), path="/")
+    home_directory = classes.Directory(name='home', hashTable=functions.loadFromDat(), path="/")
     current_directory = home_directory
     current_file = ""
 
@@ -137,7 +123,7 @@ if __name__ == '__main__':
             os.system('clear')
 
         elif user_input == 10:   #Save in .Dat File
-            saveInDat(home_directory)
+            functions.saveInDat(home_directory)
 
         elif user_input == 11:  #Exit
             break
