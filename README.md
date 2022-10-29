@@ -17,7 +17,6 @@ Current Directory: {current_directory.path}
 11. Exit
 
 # TODO
-1. Create actual files in system
-2. Remaining functions
-3. UI improvement
-4. Memory Map improvement
+Create actual files in system
+Remaining functions
+UI improvement
