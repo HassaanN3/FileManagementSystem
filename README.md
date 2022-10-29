@@ -18,4 +18,3 @@ Current Directory: {current_directory.path}
 Create actual files in system
 Remaining functions
 UI improvement
-Memory Map improvement
