@@ -87,8 +87,8 @@ def chDir(current_directory, new_directory, mode):
             print(f"{new_directory} not found in {current_directory.name}")
     return current_directory
 
-def move(current_directory, source_file, target_file):
-    current_directory[target_file] = current_directory[source_file]
+"""def move(current_directory, source_file, target_file):
+    current_directory[target_file] = current_directory[source_file]"""
 
 def printElements(current_directory):
     print(f"\n{current_directory.path}:")
