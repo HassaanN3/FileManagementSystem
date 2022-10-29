@@ -1,5 +1,5 @@
 import classes
-from getsize import getsize
+from getSize import getsize
 from mmap import PAGESIZE
 from math import ceil
 
