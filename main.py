@@ -1,7 +1,6 @@
 import classes
 import functions
 import os
-import pickle
 
 def getIntInput(min, max):
     while(1):
