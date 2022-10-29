@@ -13,5 +13,5 @@ if __name__ == '__main__':
             functions.create(current_directory, "file_" + str(i) + ".txt")
         current_directory = functions.chDir(current_directory, 'folder_' + str(j), mode = 'child')
         
-    with open('test.dat', 'wb') as file:
+    with open('sample.dat', 'wb') as file:
         pickle.dump(home_directory.hashTable, file)

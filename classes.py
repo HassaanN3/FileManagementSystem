@@ -6,9 +6,10 @@ class Directory:
         self.path += path + name + "/"
 
 class File:
-    def __init__(self, name, content) -> None:
+    def __init__(self, name, content, path) -> None:
         self.name = name
         self.content = content
+        self.path = path + name
         self.read = False
         self.write = False
     
