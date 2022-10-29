@@ -1,5 +1,5 @@
 import classes
-import sys
+from getsize import getsize
 
 def exists(current_directory, file_name):
     if file_name in current_directory.hashTable:
@@ -8,9 +8,8 @@ def exists(current_directory, file_name):
         return False
 
 def create(current_directory, file_name):
-    exists(current_directory, file_name)
     if not exists(current_directory, file_name):
-        current_directory.hashTable[file_name] = classes.File(name=file_name, content="")
+        current_directory.hashTable[file_name] = classes.File(name=file_name, content="", path=current_directory.path)
     else:
         print(f"{file_name} already exists in {current_directory.path}")
 
@@ -67,8 +66,10 @@ def chDir(current_directory, new_directory, mode):
                 current_directory = current_directory.hashTable[x]    
 
     elif mode.upper() == "CHILD":
-        current_directory = current_directory.hashTable[new_directory]
-    
+        try:
+            current_directory = current_directory.hashTable[new_directory]
+        except KeyError:
+            print(f"{new_directory} not found in {current_directory.name}")
     return current_directory
 
 def move(current_directory, source_file, target_file):
@@ -80,6 +81,7 @@ def printElements(current_directory):
         print(f"    {x}")
         
 def printMemoryMap(home_directory):
+    #Reference: https://stackoverflow.com/a/39234154
     def recursive_items(dictionary):
         for key, value in dictionary.items():
             if type(value) is classes.Directory:
@@ -87,6 +89,8 @@ def printMemoryMap(home_directory):
                 yield from recursive_items(value.hashTable)
             else:
                 yield (key, value)
+                
     print("\n\tMemory Map")
-    for x, value in recursive_items(home_directory.hashTable):
-        print(f"{x} -> Starts at: {hex(id(x))}, Size: {sys.getsizeof(x)} Bytes")
+    print(f"\nTotal Memory Being Used: {getsize(home_directory)} Bytes\n")
+    for key, value in recursive_items(home_directory.hashTable):
+        print(f"\n{key}\n   Path: {value.path}\n   Memory allocation:\n      Starts at: {hex(id(value))}\n      Size: {getsize(value)} Bytes")

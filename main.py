@@ -4,7 +4,7 @@ import os
 import pickle
 
 def loadFromDat():
-    with open('sample.dat', 'rb') as file:
+    with open('test.dat', 'rb') as file:
         try:
             loaded_dict=pickle.load(file)
         except EOFError:
