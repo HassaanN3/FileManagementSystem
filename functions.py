@@ -51,7 +51,7 @@ def mkDir(current_directory, new_directory):
 def chDir(current_directory, new_directory, mode):
     if mode.upper() == "PATH":  #new_directory is full path
         directories = new_directory.split('/')
-        for x in directories[1:len(directories)-1]: #Read comment for parent mode
+        for x in directories[2:len(directories)-1]: #Read comment for parent mode
             try:
                 current_directory = current_directory.hashTable[x]
             except KeyError:
@@ -62,8 +62,8 @@ def chDir(current_directory, new_directory, mode):
         if len(directories) <= 3:
             print("No Parent Directory Exists")
         else:
-            for x in directories[1:len(directories)-2]:
-                #start from index 2 as first is empty (due to spliting first /)
+            for x in directories[2:len(directories)-2]:
+                #start from index 2 as first is empty (due to spliting first /) and second is home (already current directory)
                 #Till len - 2 because last is empty (due to spliting last /) and second last is the original current directory
                 current_directory = current_directory.hashTable[x] 
 
