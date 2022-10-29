@@ -17,6 +17,8 @@ if __name__ == '__main__':
             current_file.writeToFile(text=''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randrange(100))))
             current_file = functions.Close(current_file)
         current_directory = functions.chDir(current_directory, 'folder_' + str(j), mode = 'child')
-        
+
     with open('sample.dat', 'wb') as file:
         pickle.dump(home_directory.hashTable, file)
+    
+    print(f"\nCreated a .dat file named sample.dat containing 3 folders with each folder containing 5 text files containing random gibberish of random lenght\n")
