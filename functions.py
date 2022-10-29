@@ -4,16 +4,16 @@ from getSize import getsize
 from mmap import PAGESIZE
 from math import ceil
 
-def loadFromDat():
-    with open('sample.dat', 'rb') as file:
+def loadFromDat(name='sample.dat'):
+    with open(name, 'rb') as file:
         try:
             loaded_dict=pickle.load(file)
         except EOFError:
             loaded_dict = dict()
     return loaded_dict
 
-def saveInDat(home_directory):
-    with open('sample.dat', 'wb') as file:
+def saveInDat(home_directory,name='sample.dat'):
+    with open(name, 'wb') as file:
         pickle.dump(home_directory.hashTable, file)
 
 def exists(current_directory, file_name):
