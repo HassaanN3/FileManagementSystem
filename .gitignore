@@ -1,2 +1,4 @@
 
 *.pyc
+__pycache__/getSize.cpython-310.pyc
+*.pyc
