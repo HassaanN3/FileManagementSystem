@@ -36,8 +36,7 @@ if __name__ == '__main__':
         threads[i].join()
     
     #try error
-    print("Successfully executed all test cases\n")
-    print("Changes made:")
+    #print("Successfully executed all test cases\n")
+    #print("Changes made:")
     #print all changes
-    functions.saveInDat(home_directory)
     #exit

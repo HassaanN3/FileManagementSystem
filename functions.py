@@ -36,6 +36,7 @@ def delete(current_directory, file_name):
     
 
 def Open(current_directory,file_name, mode):
+    print(mode)
     if exists(current_directory, file_name):
         if mode.upper() == "READ":
             current_directory.hashTable[file_name].read = True
