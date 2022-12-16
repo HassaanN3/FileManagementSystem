@@ -1,5 +1,28 @@
-w
-cd: <classes.Directory object at 0x000001F5DC8AD750>, w1: file1.txt, w2: write
-write
-r
-Mode can be either read or write
+file1.txt created successfully in directory /home/
+File file1.txt from directory /home/ opened in write mode
+file1.txt closed successfully
+file2.txt created successfully in directory /home/
+File file2.txt from directory /home/ opened in write mode
+file2.txt closed successfully
+File file1.txt from directory /home/ opened in read mode
+Error cannot write to file1.txt: No access
+file1.txt closed successfully
+
+	Memory Map
+
+Page Size: 4096 Bytes
+Total Memory Being Used: 1173 Bytes
+Total Pages Being Used: 1
+
+
+file1.txt
+   Path: /home/file1.txt
+   Memory allocation:
+      Starts at: 0x229deac7f10
+      Size: 353 Bytes
+
+file2.txt
+   Path: /home/file2.txt
+   Memory allocation:
+      Starts at: 0x229deb08040
+      Size: 352 Bytes

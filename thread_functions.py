@@ -25,16 +25,13 @@ def exec_testcases(thread_num, home_directory, current_directory, current_file):
             elif "open" in lines[i]:
                 words = lines[i].split()    #1 = file_name, 2 = mode
                 words[1] = words[1].replace(',',"")    #removing comma
-                print(words[2])
                 if words[2] == 'w':
                     words[2] = "write"
                 elif words[2] == 'r':
                     words[2] = "read"
-                print(f"cd: {current_directory}, w1: {words[1]}, w2: {words[2]}")
                 current_file = functions.Open(current_directory, words[1], words[2])
             elif "close" in lines[i]:
                 words = lines[i].split()    #1 = file_name
-                current_file = functions.Open(current_directory, words[1], "r")
                 current_file = functions.Close(current_file)
             elif "create" in lines[i]:
                 words = lines[i].split()    #1 = file_name

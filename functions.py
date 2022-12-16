@@ -25,23 +25,26 @@ def exists(current_directory, file_name):
 def create(current_directory, file_name):
     if not exists(current_directory, file_name):
         current_directory.hashTable[file_name] = classes.File(name=file_name, content="", path=current_directory.path)
+        print(f"{file_name} created successfully in directory {current_directory.path}")
     else:
         print(f"{file_name} already exists in {current_directory.path}")
 
 def delete(current_directory, file_name):
     if exists(current_directory, file_name):
         current_directory.hashTable.pop(file_name)
+        print(f"{file_name} deleted successfully from directory {current_directory.path}")
     else:
         print(f"{file_name} does not exist in {current_directory.path}")
     
 
 def Open(current_directory,file_name, mode):
-    print(mode)
     if exists(current_directory, file_name):
         if mode.upper() == "READ":
             current_directory.hashTable[file_name].read = True
+            print(f"File {file_name} from directory {current_directory.path} opened in read mode")
         elif mode.upper() == "WRITE":
             current_directory.hashTable[file_name].write = True
+            print(f"File {file_name} from directory {current_directory.path} opened in write mode")
         else:
             print("Mode can be either read or write")
             return False
@@ -52,6 +55,7 @@ def Open(current_directory,file_name, mode):
     
 
 def Close(file):    #File exists as opened so no need to check existence
+    print(f"{file.name} closed successfully")
     file.read = False
     file.write = False
     return False
@@ -59,6 +63,7 @@ def Close(file):    #File exists as opened so no need to check existence
 def mkDir(current_directory, new_directory):
     if not exists(current_directory, new_directory):
         current_directory.hashTable[new_directory] = classes.Directory(name=new_directory, hashTable=dict(), path=current_directory.path)
+        print(f"{new_directory} created successfully in directory {current_directory.path}")
     else:
         print(f"{new_directory} already exists in {current_directory.path}")
 
@@ -79,11 +84,13 @@ def chDir(current_directory, new_directory, mode):
             for x in directories[2:len(directories)-2]:
                 #start from index 2 as first is empty (due to spliting first /) and second is home (already current directory)
                 #Till len - 2 because last is empty (due to spliting last /) and second last is the original current directory
-                current_directory = current_directory.hashTable[x] 
+                current_directory = current_directory.hashTable[x]
+            print("Changed to parent directory successfully")
 
     elif mode.upper() == "CHILD":
         try:
             current_directory = current_directory.hashTable[new_directory]
+            print(f"Changed to {new_directory} successfully")
         except KeyError:
             print(f"{new_directory} not found in {current_directory.name}")
     return current_directory
