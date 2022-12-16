@@ -25,7 +25,7 @@ if __name__ == '__main__':
     threads = []
 
     for i in range(user_input):     #creating threads
-        threads.append(threading.Thread(target=thread_functions.exec_testcases, args=(i+1,)))
+        threads.append(threading.Thread(target=thread_functions.exec_testcases, args=(i+1,home_directory, current_directory, current_file)))
     
     print(f"\nSuccessfully created {user_input} threads.\n")
     
