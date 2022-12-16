@@ -7,9 +7,10 @@ def exec_testcases(thread_num, home_directory, current_directory, current_file):
     lines = file.readlines()
     for i in range(len(lines)):
         lines[i] = lines[i].lower()
+    stdout = sys.stdout
     with open(f'./testCases/output/output_thread{thread_num}.txt', 'w') as sys.stdout:  #all print statements directed to file
         for i in range(len(lines)):
-            #lowercase
+            print(f"Command: {lines[i]}Output: ", end="")
             if "mkdir" in lines[i]:  
                 words = lines[i].split()    #1 = dir_name
                 functions.mkDir(current_directory, words[1])
@@ -51,9 +52,8 @@ def exec_testcases(thread_num, home_directory, current_directory, current_file):
                     current_file.writeToFile(text=words[2])
             elif "memory" in lines[i]:
                 functions.printMemoryMap(home_directory)
+            else:
+                print("Invalid command")
+            print("")   #new line
     file.close()    #closing file
-    sys.stdout = sys.__stdout__
-    return home_directory
-
-def read_file():
-    return
+    sys.stdout = stdout     #redirecting output

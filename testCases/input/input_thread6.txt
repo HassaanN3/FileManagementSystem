@@ -1,0 +1,9 @@
+create Hassaan.txt
+open Hassaan.txt, w
+write_to_file Hassaan.txt, "Discord"
+close Hassaan.txt
+create Usman.txt
+open Usman.txt, w
+write_to_file Usman.txt, "Mod"
+close Usman.txt
+show_memory_map

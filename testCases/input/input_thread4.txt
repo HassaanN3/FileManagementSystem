@@ -1,0 +1,7 @@
+create_directory Assignment
+change_directory Assignment,  c
+create Hassaan.txt
+open Hassaan.txt, w
+write_to_file Hassaan.txt, "Gaming"
+close Hassaan.txt
+show_memory_map

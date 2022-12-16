@@ -1,6 +1,6 @@
 import classes
 import functions
-import os
+import sys
 import threading
 import thread_functions
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
         threads[i].join()
     
     #try error
-    #print("Successfully executed all test cases\n")
-    #print("Changes made:")
+    sys.stdout = sys.__stdout__     #redirect Output -> Failsafe incase threading fails before redirecting
+    print("Successfully executed all test cases\n")
     #print all changes
     #exit

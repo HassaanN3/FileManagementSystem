@@ -1,0 +1,11 @@
+create Assignment.txt
+open Assignment.txt, w
+write_to_file Assignment.txt, "Jojo"
+write_to_file Assignment.txt, " Sophie"
+close Assignment.txt
+create Task.txt
+open Task.txt, w
+show_memory_map
+write_to_file Task.txt, "Hansi"
+close Task.txt
+show_memory_map

@@ -1,0 +1,9 @@
+create Threading.txt
+open Threading.txt, w
+write_to_file Threading.txt, "Sust"
+create Lab11.txt
+close Threading.txt
+open Lab11.txt, w
+write_to_file Lab11.txt, "ahegao"
+close Lab11.txt
+show_memory_map

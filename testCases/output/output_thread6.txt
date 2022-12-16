@@ -1,0 +1,93 @@
+Command: create hassaan.txt
+Output: hassaan.txt already exists in /home/
+
+Command: open hassaan.txt, w
+Output: File hassaan.txt from directory /home/ opened in write mode
+
+Command: write_to_file hassaan.txt, "discord"
+Output: Successfully wrote content in file hassaan.txt
+
+Command: close hassaan.txt
+Output: hassaan.txt closed successfully
+
+Command: create usman.txt
+Output: usman.txt created successfully in directory /home/
+
+Command: open usman.txt, w
+Output: File usman.txt from directory /home/ opened in write mode
+
+Command: write_to_file usman.txt, "mod"
+Output: Successfully wrote content in file usman.txt
+
+Command: close usman.txt
+Output: usman.txt closed successfully
+
+Command: show_memory_map
+Output: 
+	Memory Map
+
+Page Size: 4096 Bytes
+Total Memory Being Used: 3963 Bytes
+Total Pages Being Used: 1
+
+
+file1.txt
+   Path: /home/file1.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4af0
+      Size: 353 Bytes
+
+file2.txt
+   Path: /home/file2.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4cd0
+      Size: 352 Bytes
+
+threading.txt
+   Path: /home/threading.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4880
+      Size: 361 Bytes
+
+lab11.txt
+   Path: /home/lab11.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4d90
+      Size: 355 Bytes
+
+assignment.txt
+   Path: /home/assignment.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4c70
+      Size: 364 Bytes
+
+task.txt
+   Path: /home/task.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4f70
+      Size: 352 Bytes
+
+assignment
+   Path: /home/assignment
+   Memory allocation:
+      Starts at: 0x1d93cfc4e20
+      Size: 349 Bytes
+
+hassaan.txt
+   Path: /home/hassaan.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4fa0
+      Size: 368 Bytes
+
+file5.txt
+   Path: /home/file5.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4940
+      Size: 353 Bytes
+
+usman.txt
+   Path: /home/usman.txt
+   Memory allocation:
+      Starts at: 0x1d93cfc4eb0
+      Size: 352 Bytes
+

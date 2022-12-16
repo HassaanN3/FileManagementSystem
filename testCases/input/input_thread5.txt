@@ -1,0 +1,5 @@
+create file5.txt
+open file5.txt, w
+write_to_file file5.txt, "Omen"
+close file5.txt
+show_memory_map

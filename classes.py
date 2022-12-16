@@ -19,6 +19,7 @@ class File:
                 self.content += text
             else:   #does not overwrite TODO index does not exist
                 self.content = self.content[:index] + text + self.content[index:]
+            print(f"Successfully wrote content in file {self.name}")
         else:
             print(f"Error cannot write to {self.name}: No access")
 
