@@ -1,5 +1,5 @@
 # FileManagementSystem
- OS Assignment 1 && Lab 6
+ OS Assignment 1,2 && Lab 6,11
 
 # Tested on Linux (Ubuntu)
  For Windows, edit the clear screen command (at user_input == 9) to cls
@@ -21,3 +21,6 @@
 1. Create actual files in system
 2. Remaining (Optional) functions
 3. UI improvement
+
+# For UI run main.py
+# For threaded based implementation run testcase_thread.py
